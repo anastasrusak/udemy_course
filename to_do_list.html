@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+    <form id="form">
+        <div class="form-group">
+          <label for="input-to-do">To Do</label>
+          <input type="text" class="form-control" id="input-to-do">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <ul class="list-group" id="list">
+        <li class="list-group-item">Eat breakfast</li>
+      </ul>
+    </div>
+    <script>
+        const form = document.getElementById("form")
+        const input = document.getElementById("input-to-do")
+        const list = document.getElementById("list")
+
+        form.onsubmit = function(event) {
+            event.preventDefault();
+            let inputValue = input.value
+            input.value = ""
+
+            let li = document.createElement("li")
+            li.innerHTML = inputValue
+            list.appendChild(li)
+        }
+
+    </script>
+</body>
+</html>

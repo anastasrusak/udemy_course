@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+<span id="hours"></span>:
+<span id="minutes"></span>:
+<span id="seconds"></span>
+    </div>
+
+    <script>
+        let h = document.getElementById("hours");
+        let m = document.getElementById("minutes");
+        let s = document.getElementById("seconds");
+
+        function showTime(){
+            let time = new Date();
+            h.innerHTML = time.getHours();
+            m.innerHTML = time.getMinutes();
+            s.innerHTML = time.getSeconds();
+        }
+        setInterval(showTime, 1000)
+
+    </script>
+</body>
+</html>
