@@ -55,3 +55,32 @@ switch(num){
         console.log("Something wrong");
         break;
 }
+
+let num = 50;
+
+while (num < 55){
+    console.log(num);
+    num++;
+}
+
+let num = 50;
+
+do{
+    console.log(num);
+    num++;
+}
+while (num < 56);
+
+for (let i = 1; i < 8; i++){
+    if (i ==6){
+        break; // прервет весь цикл
+    }
+    console.log(i)
+}
+
+for (let i = 1; i < 8; i++){
+    if (i ==6){
+        continue; // пропустит 6
+    }
+    console.log(i)
+}
