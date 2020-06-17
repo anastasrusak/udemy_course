@@ -84,3 +84,50 @@ for (let i = 1; i < 8; i++){
     }
     console.log(i)
 }
+
+// function declaration  - объявлена в потоке кода, можно вызвать до объявления
+
+function showFirstMessage(text){
+    alert(text);
+    console.log(num)
+}
+
+showFirstMessage("Hello");
+
+
+function calc(a, b){
+    return a + b;
+}
+
+console.log(calc(3, 4));
+
+function returnVal(){
+    let num = 50;
+    return num;
+}
+
+let anotherNum = retVal(); 
+
+// function expression  - функция присвоена в переменную, создается тогда, когда код доходит
+
+let calc = function(a, b){
+    return a + b;
+}
+
+// стрелочная функция 
+
+let calc = (a, b) => {a + b};
+
+// свойства и методы
+
+let str = "test";
+console.log(str.length); // свойство
+
+console.log(str.toUpperCase()); // метод
+
+let twelve = "12.2"
+console.log(Math.round(twelve));
+
+let twelve = "12.2px"
+console.log(parseInt(twelve));
+console.log(parseFloat(twelve));
