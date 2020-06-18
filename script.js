@@ -69,24 +69,22 @@ let appData = {
         //appData.income = item.split(", ");
         //appData.income.push(prompt("Something else?"));
         //appData.income.sort();
-        if (typeof(item) === 'string' && item != null && item != ''){
+        if (typeof(item) != 'string' || typeof(item) == null && item == ''){
+            console.log("Wrong data");   
+        } else{
             appData.income = item.split(", ");
+            appData.income.push(prompt("Something else?"));
+            appData.income.sort();
         }
-        let extraQuestion = prompt("Something else?");
-        if (typeof(extraQuestion) === 'string' && extraQuestion != null && extraQuestion != ''){
-            appData.income.push(extraQuestion);
-        }
-        appData.income.sort();
         appData.income.forEach(function (item, index){
-            console.log(`Ways to get extra income: 
-            ${index+1}: ${item}`)
+            alert(`Ways to get extra income: ${index+1} - ${item}`)
         });
     }
 };
 
 function showData(){
     for (let key in appData){
-    console.log(`Out application conatins the following data: ${appData[key]}`);
+    console.log(`Out application conatins the following data: ${key} - ${appData[key]}`);
     }
 }
 showData();
