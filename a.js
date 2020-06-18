@@ -131,3 +131,123 @@ console.log(Math.round(twelve));
 let twelve = "12.2px"
 console.log(parseInt(twelve));
 console.log(parseFloat(twelve));
+
+//callback
+//1. no callback
+function first(){
+    setTimeout(function(){
+        console.log(1);
+    }, 500)
+}
+
+function second(){
+    console.log(2);
+}
+
+first();
+second(); //сначала выведется 2, потом 1
+
+//2. callback
+function learnJS(lang, callback){
+    console.log("I learn " + lang);
+    callback();
+}
+learnJS("JavaScript", function() {
+    console.log("I pass third lesson");
+}) //сначала выполнится 1, потом 2
+
+// или
+
+function learnJS(lang, callback){
+    console.log("I learn " + lang);
+    callback();
+}
+
+function done(){
+    console.log("I pass third lesson"); 
+}
+
+learnJS("JavaScript", done); //done  - не вызов ф-ции, а саму ф-цию, чтобы она потом выполнилась сама
+
+// объекты
+let obj = new Object();
+
+let options = {
+   width: 1024,
+   height: 1024,
+   name: "test"
+}
+
+console.log(options.name);
+options.bool = false; //добавить новый ключ
+
+delete options.bool; //удаление свойства
+
+options.colors = {
+    border: "black",
+    background: "red"
+};
+
+for (let key in options){
+    console.log('Option ' + key + ' has value ' + options[key]);
+}
+
+console.log(Object.keys(options).length);
+
+// arrays
+
+let arr = [1, 2, 3, 4, 5];
+
+arr.pop(); // удалить элемент с конца
+arr.push("5"); // добавить элемент с конец строки
+arr.shift(); // удаляетс первый элемент массива
+arr.unshift("first"); //добавить первый эдемент 
+
+arr.forEach(function(item, i, mass){
+    console.log(i + ' : ' + item + '( (array: ' + mass + ')' );
+});
+
+console.log(arr);
+
+let mass = [1, 3, 4, 6, 7];
+
+for (let key in mass){
+    console.log(key);
+} // выведет индексы
+
+for (let key of mass){
+    console.log(key);
+} // выведет значения
+
+let ans = prompt("", ""),
+    arr = [];
+
+arr = ans.split(',');
+console.log(arr);    
+
+let arr = ["aaa", "ddd", "rrr"],
+    i = arr.join(', ');
+
+console.log(i);    
+
+let arr = ["1", "15", "4"],
+    i = arr.sort(compareNum);
+
+function compareNum(a, b){
+    return a-b;
+}
+
+console.log(arr);  
+
+//ООП
+
+let soldier = {
+    health: 400, 
+    armor: 100
+};
+
+let john = {
+    health: 100 
+};
+
+john.__proto__ = soldier; //теперь у джона есть armor, джон теперь потомок солдата
