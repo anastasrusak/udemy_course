@@ -1,3 +1,54 @@
+//Получить кнопку "Начать расчет" через id
+
+let start = document.getElementById('start');
+
+//Получить все блоки в правой части программы через классы (которые имеют класс название-value, начиная с 
+// и заканчивая)
+let result = document.querySelector('.result-table');
+console.log(result)
+let values = result.querySelectorAll('[class*="value"]');
+console.log(values)
+
+//Получить поля(input) c обязательными расходами через класс. (class=”expenses-item”)
+let input = document.querySelectorAll('.expenses-item');
+console.log(input)
+
+//Получить кнопки “Утвердить” и “Рассчитать” через Tag, каждую в своей переменной. 
+let button1 = document.getElementsByTagName('button')[0];
+let button2 = document.getElementsByTagName('button')[1];
+let button3 = document.getElementsByTagName('button')[2];
+console.log('button1', button1);
+console.log('button2', button2);
+console.log('button3', button3);
+
+//Получить поля для ввода необязательных расходов (optionalexpenses-item) при помощи querySelectorAll
+let optExpenses = document.querySelectorAll('.optionalexpenses-item');
+console.log(optExpenses);
+
+//Получить оставшиеся поля через querySelector (статьи возможного дохода, чекбокс, сумма, процент, год, месяц, день)
+let possibleIncome = document.querySelector('.choose-income-label');
+console.log(possibleIncome);
+
+let checkSavings = document.querySelector('.checksavings');
+console.log(checkSavings);
+
+let sum = document.querySelector('.sum');
+console.log(sum);
+
+let percent = document.querySelector('.percent');
+console.log(percent);
+
+let year = document.querySelector('.year');
+console.log(year);
+
+let month = document.querySelector('.month');
+console.log(month);
+
+let day = document.querySelector('.day');
+console.log(day);
+
+
+
 let money, time;
 function start(){
     money = +prompt("What is your budget for a month", '');
@@ -141,3 +192,6 @@ showData();
 
 //Как перебрать свойства объекта?
 // через цикл for in
+
+//Как можно изменить размер шрифта элемента при помощи JS?
+//через fontSize

@@ -251,3 +251,49 @@ let john = {
 };
 
 john.__proto__ = soldier; //теперь у джона есть armor, джон теперь потомок солдата
+
+//работа с DOM
+// получение элементов
+let box = document.getElementById('idName');
+
+let btn = document.getElementsByTagName('button'); //несколько кнопок - получаем псевомассив
+console.log(btn[0]) //одна кнопка
+console.log(btn) //коллекци кнопок
+
+let circle = document.getElementsByClassName('className');
+
+let heart = document.querySelectorAll('.heart'); //получаем класс (через точку), id -через #, атрибут - через [] 
+let heart = document.querySelectorAll('.wrapper .heart');  //вложенный класс
+
+let oneHeart = document.querySelector('.heart'); //получаем первый элемент на страницу с таким селектором
+let wrapper = document.querySelector('.wrapper');
+
+box.style.backgroundColor = 'blue'; 
+btn[1].style.borderRadius = '100%';
+
+for (let i = 0; i < heart.length; i++){
+    heart[i].style.backgroundColor = 'blue';
+}
+
+heart.forEach(function(item, i, hearts){
+    item.style.backgroundColor = 'blue';
+});
+
+let div = document.createElement('div'); // создает элемент
+let text = document.createTextNode('I am here'); // создае текст вне обертки тегов
+
+div.classList.add('black'); //black - класс созданный заранее в css файле
+
+document.body.appendChild(div); //добавить элемент в файл html в концы боди
+wrapper.appendChild(div); // wrapper - родитель, добавление в конец родителя
+
+document.body.insertBefore(div, circle[0]); //circle[0] - перед чем вставить div
+document.body.removeChild(circle[1]); //удаление элемента у родителя
+
+document.body.replaceChild(btn[2], circle[2]); //заменить один элемент другим
+
+div.innerHTML = 'Hello World'; //добавление html кода в элемент
+div.innerHTML = '<h1>Hello World</h1>'; //добавится тэг
+
+div.textContent = 'Hello World' //добавление именно текста, позволяет избежать ввода юзером не текста
+
