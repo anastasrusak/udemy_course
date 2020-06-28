@@ -297,3 +297,115 @@ div.innerHTML = '<h1>Hello World</h1>'; //добавится тэг
 
 div.textContent = 'Hello World' //добавление именно текста, позволяет избежать ввода юзером не текста
 
+//события
+let btn = document.getElementsByTagName('button');
+btn[0].onclick = function(){
+    alert("You clicket the button")
+} // но если есть несколько функций, которые должн ывыполнитьс после этого события, выполнится последнее. Также нельзя удалить такое событие
+
+btn[0].addEventListener('click', function(){
+    alert("You clicket the button");
+    alert("You clicket the button again")
+}) // оба действия выполнятся после выполнения события
+
+btn[0].addEventListener('click', function(){
+    alert("You clicket the button");
+})
+btn[0].addEventListener('click', function(){
+    alert("You clicket the button again")
+}) // по раздельности - тоже самое
+
+
+btn[0].addEventListener('mouseenter', function(){
+    alert("You hover over the button");
+})
+
+btn[0].addEventListener('click', function(event){
+    let target = event.target;
+    target.style.display = 'none';
+    console.log("Event happened: " + event.type + " on " + event.target + " element");
+    console.log(event); // содержание объекта event
+})
+
+let btn = document.getElementsByTagName('button'),
+    wrap = document.querySelector('.wrapper');
+
+btn[0].addEventListener('click', function(event){
+    console.log("Event happened: " + event.type + " on " + event.target + " element");
+})
+
+wrap.addEventListener('click', function(){
+    console.log("Event happened: " + event.type + " on " + event.target + " element");
+})    //родитель кнопки btn 
+
+// высплытие событий - это когда обработчки событий сначала срабатывает на дочернем элементе, а потом для его родителе (для вложенный элементов), а затем выше и выше
+
+// отмены стандартный событий браузера:
+let link = document.querySelector('a'); // находим ссылку
+link.addEventListener('click', function(event){
+    event.preventDefault(); // отменяет стандартное поведение браузера - не перейдем по ссылке, а увидим консоль.лог
+    console.log("Event happened: " + event.type + " on " + event.target + " element"); 
+ })
+
+// один и тот же обработчик событий на несколько элементов 
+let btn = document.querySelectorAll('button');
+
+btn.forEach(function(item){
+    item.addEventListener('mouseleave', function(){
+        console.log("Out")
+    })
+})
+
+yearValue.value = // в тип input значени можно записать через value
+
+// регулярные выражения
+//вариант 1
+new RegExp('pattern', 'flags');
+//вариант 2
+/pattern/ //после закрывающего слэша можно прописывать флаги
+
+// pattern - то что мы хотим найти, буквы, знаки, скобки и т.д. Флаги - вспомог символы
+
+let answer = prompt('enter yuot name');
+
+let reg = /n/; 
+
+console.log(ans.search(reg)); //внутри строки ищи регул выражение
+
+//флаги:
+//i - нати вне зависимости от регистра
+//g - ищи глобавльно, все вхождения
+//m - флаг многострочности
+// флаги можно комбинировать let reg = /n/gi; 
+
+let reg = /n/i; 
+
+console.log(ans.match(reg)); // получаем массив с совпадениями
+
+let pass = prompt('Enter password');
+console.log(pass.replace(/./g, "*")); //можно заменить значени pass на другео значение. .- означает что мы будеи искать или заменять все символы из строки. Первый аргумент - регулярное выражение - что мы хотим заменить, аторый, на что хотим заменить.
+alert('12-34-56'.replace(/-/g, ':')); //все дефисы заменятся на :
+
+// метод ругл выражений
+let reg = /n/; 
+let answer = prompt('enter yuot name');
+console.log(reg.test(ans)); // true т.к. есть n
+ 
+// найти цифру: \d, а не цифру: \D
+// найти бувкы \w , а не букву:\W
+// найти пробелы \s , а не пробел: \S
+// *, \, $ и т.д. нужно экранировать обратынйм слэшем
+// а пробел и не надо экранировать console.log(str.match(/ /i));
+console.log(str.match(/\//i)); // ищем слэш
+
+
+let answer = prompt('enter numbers');
+let reg = /\d/g; 
+console.log(ans.match(reg)); // получаем массив со всеми цифрами
+
+let str = 'My name is R2D2';
+console.log(str.match(/\w\d\w\d/i)); //получим R2D2
+
+
+
+
